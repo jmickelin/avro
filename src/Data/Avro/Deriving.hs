@@ -525,8 +525,9 @@ mkFieldTypeName namespaceBehavior = \case
           [a, b, c]       -> [t| Either3 $(go a) $(go b) $(go c) |]
           [a, b, c, d]    -> [t| Either4 $(go a) $(go b) $(go c) $(go d) |]
           [a, b, c, d, e] -> [t| Either5 $(go a) $(go b) $(go c) $(go d) $(go e) |]
+          [a, b, c, d, e, f] -> [t| Either6 $(go a) $(go b) $(go c) $(go d) $(go e) $(go f) |]
           ls              ->
-            error $ "Unions with more than 5 elements are not yet supported: Union has " <> (show . length) ls <> " elements"
+            error $ "Unions with more than 6 elements are not yet supported: Union has " <> (show . length) ls <> " elements"
 
 updateFirst :: (Text -> Text) -> Text -> Text
 updateFirst f t =
